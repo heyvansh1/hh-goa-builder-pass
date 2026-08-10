@@ -228,6 +228,15 @@
         let currentFormat = 'B';
         let uploadedImg = null;
 
+        // Preload Goa Beach Sunset & Scooter Art
+        const beachArtImg = new Image();
+        beachArtImg.crossOrigin = "anonymous";
+        beachArtImg.src = 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80';
+
+        const scooterArtImg = new Image();
+        scooterArtImg.crossOrigin = "anonymous";
+        scooterArtImg.src = 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80';
+
         function showSection(section) {
             const secHero = document.getElementById('sectionHero');
             const secGen = document.getElementById('sectionGenerator');
@@ -465,11 +474,59 @@
                 ctx.lineTo(860, 1285);
                 ctx.stroke();
 
-                // 8. Slogan
+                // 8. Slogan & Two Equal Square Artwork Cards Below
                 ctx.fillStyle = '#ffe600';
-                ctx.font = '800 21px "JetBrains Mono", monospace';
+                ctx.font = '800 24px "JetBrains Mono", monospace';
                 ctx.textAlign = 'center';
-                ctx.fillText('🌴 CODE BY THE BEACH • SHIP BY THE SUNSET 🌊', 500, 1335);
+                ctx.fillText('🌴 CODE BY THE BEACH • SHIP BY THE SUNSET 🌊', 500, 1320);
+
+                ctx.fillStyle = '#ff007f';
+                ctx.font = '800 22px "JetBrains Mono", monospace';
+                ctx.fillText('#FrameInGoa', 500, 1352);
+
+                // Two Square Artwork Cards (Side-by-Side)
+                const sqSize = 180;
+                const sqY = 1368;
+                const sq1X = 295; // Left Square (Sunset Beach)
+                const sq2X = 525; // Right Square (Scooter Art)
+
+                // Left Square Card (Sunset Beach)
+                ctx.save();
+                ctx.beginPath();
+                ctx.roundRect(sq1X, sqY, sqSize, sqSize, 20);
+                ctx.clip();
+                if (beachArtImg.complete) {
+                    ctx.drawImage(beachArtImg, sq1X, sqY, sqSize, sqSize);
+                } else {
+                    ctx.fillStyle = '#1e1b4b';
+                    ctx.fillRect(sq1X, sqY, sqSize, sqSize);
+                }
+                ctx.restore();
+
+                ctx.strokeStyle = '#ffe600';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.roundRect(sq1X, sqY, sqSize, sqSize, 20);
+                ctx.stroke();
+
+                // Right Square Card (Scooter Art)
+                ctx.save();
+                ctx.beginPath();
+                ctx.roundRect(sq2X, sqY, sqSize, sqSize, 20);
+                ctx.clip();
+                if (scooterArtImg.complete) {
+                    ctx.drawImage(scooterArtImg, sq2X, sqY, sqSize, sqSize);
+                } else {
+                    ctx.fillStyle = '#065f46';
+                    ctx.fillRect(sq2X, sqY, sqSize, sqSize);
+                }
+                ctx.restore();
+
+                ctx.strokeStyle = '#ff007f';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.roundRect(sq2X, sqY, sqSize, sqSize, 20);
+                ctx.stroke();
 
             } else {
                 canvas.width = 1000;
@@ -571,6 +628,9 @@
             const text = encodeURIComponent("Check out my official builder pass for Hacker House Goa 2026! #FrameInGoa");
             window.open(`https://x.com/intent/post?text=${text}`, '_blank');
         }
+
+        beachArtImg.onload = () => drawCanvas();
+        scooterArtImg.onload = () => drawCanvas();
 
         const dropZone = document.getElementById('dropZone');
         if (dropZone) {
