@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HH Goa 2026 — Official Builder Pass Generator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- HEIC Support for iPhone Photos -->
+    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+    <!-- Google Fonts including Rozha One & Yatra One for Moki-style Devanagari & Display Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Playfair+Display:ital,wght@0,700;0,900;1,900&family=Plus+Jakarta+Sans:wght@500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #032b1a;
+            color: #f3f4f6;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .serif-title { font-family: 'Playfair Display', serif; }
+        .retro-brand { font-family: 'VT323', monospace; }
+        
+        .glass-panel {
+            background: rgba(4, 40, 25, 0.88);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(250, 204, 21, 0.25);
+        }
+        .bg-pattern {
+            background-image: radial-gradient(rgba(250, 204, 21, 0.12) 1px, transparent 1px);
+            background-size: 22px 22px;
+        }
+
+        /* Stacked Banner Typography & Effects matching image_1685bc.png */
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            color: #ffe600;
+            letter-spacing: -0.01em;
+            text-shadow: 4px 4px 0px rgba(0,0,0,0.4);
+        }
+        .goa-stamp {
+            font-family: 'Rozha One', 'Yatra One', serif;
+            font-weight: 900;
+            background: #ff007f;
+            color: #ffffff;
+            box-shadow: 4px 4px 0px #000;
+        }
+        .retro-button-yellow {
+            background-color: #ffe600;
+            color: #000000;
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            border: 2px dashed #ff007f;
+            box-shadow: 4px 4px 0px #000000;
+        }
+        .retro-button-yellow:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000000;
+        }
+    </style>
+</head>
+<body class="bg-pattern min-h-screen flex flex-col justify-between pb-12">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-emerald-800/80 bg-black/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex justify-between items-center">
+            
+            <!-- Brand Logo -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('hero')">
+                <div class="text-yellow-400 retro-brand text-2xl font-bold leading-none tracking-wider border-2 border-yellow-400 px-2 py-0.5 rounded bg-black">
+                    2:47PM<br><span class="text-xs text-pink-500 block -mt-1 tracking-normal">STUDIO</span>
+                </div>
+            </div>
+
+            <!-- Action Navigation Buttons -->
+            <div class="flex items-center space-x-4 sm:space-x-6">
+                <button onclick="showSection('generator')" class="retro-button-yellow px-5 py-1.5 text-sm uppercase tracking-wider transition-all active:translate-x-0 active:translate-y-0">
+                    CREATE
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="max-w-7xl mx-auto px-4 py-8 w-full flex-grow flex flex-col justify-center">
+
+        <!-- 1. LANDING HERO SECTION (Stacked HACKER / HOUSE with center Goa Stamp) -->
+        <section id="sectionHero" class="flex flex-col items-center justify-center text-center py-12 space-y-8">
+            <div class="relative max-w-5xl mx-auto w-full py-8">
+                <!-- Retro Studio Tag Top Left -->
+                <div class="absolute -top-4 left-2 sm:left-10 text-yellow-400 retro-brand text-3xl font-bold leading-none text-left">
+                    2:47PM<br><span class="text-sm text-pink-500 tracking-normal">STUDIO</span>
+                </div>
+
+                <!-- Main Title Stacked matching image_1685bc.png -->
+                <div class="relative inline-block my-6 px-4">
+                    <div class="hero-title text-6xl sm:text-8xl md:text-[110px] leading-[0.9] uppercase flex flex-col items-center select-none">
+                        <span>HACKER</span>
+                        <span>HOUSE</span>
+                    </div>
+                    <!-- Central Pink Goa Badge -->
+                    <div class="goa-stamp absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-12 px-6 py-2 sm:px-10 sm:py-3.5 rounded-2xl text-3xl sm:text-6xl font-black uppercase tracking-wider z-10 border-2 sm:border-4 border-black">
+                        गोवा
+                    </div>
+                </div>
+
+                <!-- Dark Pill Info Container -->
+                <div class="bg-black/80 border border-emerald-800/80 rounded-full py-2.5 px-6 max-w-3xl mx-auto flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm mono text-yellow-400 space-y-1 sm:space-y-0 shadow-2xl">
+                    <span class="font-bold">GOA, INDIA • 28 - 31 OCT 2026</span>
+                    <span class="text-pink-400 font-bold">2:47 PM STUDIO</span>
+                </div>
+
+                <p class="text-xs sm:text-sm mono text-emerald-300/80 mt-6">
+                    #FrameInGoa • HH GOA 2026 • August 28–31, 2026 • Goa, India
+                </p>
+                <p class="text-[11px] mono text-emerald-400/50 mt-1">
+                    Built for HH Goa 2026 builders & attendees.
+                </p>
+            </div>
+
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <button onclick="showSection('generator')" class="retro-button-yellow text-lg px-8 py-3 uppercase tracking-wider">
+                    Build Your Pass Now
+                </button>
+            </div>
+        </section>
+
+
+        <!-- 2. CREATE / ID CARD GENERATOR SECTION -->
+        <section id="sectionGenerator" class="hidden">
+            <!-- Format Tabs -->
+            <div class="flex justify-center mb-8">
+                <div class="bg-black/70 p-1.5 rounded-xl border border-emerald-800/80 inline-flex space-x-2 shadow-xl">
+                    <button id="tabFormatB" onclick="switchFormat('B')" class="px-5 py-2.5 rounded-lg text-sm font-extrabold transition-all duration-200 bg-yellow-400 text-black shadow-lg shadow-yellow-400/20">
+                        Format B: Official Builder Pass
+                    </button>
+                    <button id="tabFormatA" onclick="switchFormat('A')" class="px-5 py-2.5 rounded-lg text-sm font-extrabold transition-all duration-200 text-emerald-200 hover:text-white">
+                        Format A: PFP Overlay
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Customization Form Controls -->
+                <div class="lg:col-span-5 glass-panel p-6 rounded-2xl shadow-2xl space-y-5">
+                    
+                    <!-- Image Input -->
+                    <div>
+                        <label class="block text-xs font-mono uppercase tracking-wider text-yellow-400/90 mb-2">1. Upload Photo (JPG, PNG, HEIC)</label>
+                        <div id="dropZone" class="border-2 border-dashed border-emerald-700 hover:border-yellow-400 rounded-xl p-5 text-center cursor-pointer transition-colors bg-black/40 group">
+                            <input type="file" id="imageInput" accept="image/png, image/jpeg, image/heic, image/heif" class="hidden" onchange="handleImageSelect(event)">
+                            <div class="flex flex-col items-center justify-center space-y-2">
+                                <svg class="w-8 h-8 text-emerald-400 group-hover:text-yellow-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                <p class="text-sm text-gray-200 font-semibold" id="uploadLabel">Click or drop photo here</p>
+                                <p class="text-xs text-emerald-400/60">Supports portrait, landscape & iPhone photos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Builder Pass Fields -->
+                    <div id="fieldsFormatB" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-mono uppercase tracking-wider text-yellow-400/90 mb-1">2. Builder Name</label>
+                            <input type="text" id="inputName" value="Vansh Bishnoi" placeholder="Your Name" oninput="drawCanvas()" class="w-full bg-black/60 border border-emerald-800 focus:border-yellow-400 rounded-lg px-4 py-2 text-sm text-white focus:outline-none transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-mono uppercase tracking-wider text-yellow-400/90 mb-1">3. Role / Stack</label>
+                            <input type="text" id="inputRole" value="Solidity / DeFi Architect" placeholder="e.g. Smart Contracts, Rust, Frontend" oninput="drawCanvas()" class="w-full bg-black/60 border border-emerald-800 focus:border-yellow-400 rounded-lg px-4 py-2 text-sm text-white focus:outline-none transition-colors">
+                        </div>
+                    </div>
+
+                    <!-- Position Controls -->
+                    <div class="pt-2 border-t border-emerald-900 space-y-3">
+                        <span class="block text-xs font-mono uppercase tracking-wider text-yellow-400/90">Adjust Photo Alignment</span>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div>
+                                <label class="text-xs text-gray-400 block mb-1">Zoom</label>
+                                <input type="range" id="zoomSlider" min="0.5" max="2.5" step="0.05" value="1" oninput="drawCanvas()" class="w-full accent-yellow-400">
+                            </div>
+                            <div>
+                                <label class="text-xs text-gray-400 block mb-1">Pan X</label>
+                                <input type="range" id="panXSlider" min="-250" max="250" step="2" value="0" oninput="drawCanvas()" class="w-full accent-yellow-400">
+                            </div>
+                            <div>
+                                <label class="text-xs text-gray-400 block mb-1">Pan Y</label>
+                                <input type="range" id="panYSlider" min="-250" max="250" step="2" value="0" oninput="drawCanvas()" class="w-full accent-yellow-400">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="pt-2 space-y-3">
+                        <button onclick="downloadImage()" class="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-extrabold py-3.5 px-6 rounded-xl shadow-lg transition-all transform active:scale-98 flex items-center justify-center space-x-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            <span>Download High-Res Pass</span>
+                        </button>
+
+                        <button onclick="shareToX()" class="w-full bg-black/60 border border-emerald-700 hover:border-pink-500 text-white font-bold py-3 px-6 rounded-xl transition-all flex items-center justify-center space-x-2 group">
+                            <svg class="w-4 h-4 fill-current group-hover:text-pink-400 transition-colors" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            <span>Share on X (#FrameInGoa)</span>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Preview Display -->
+                <div class="lg:col-span-7 flex flex-col items-center justify-center">
+                    <div class="relative w-full max-w-[440px] p-2 glass-panel rounded-2xl flex items-center justify-center shadow-2xl">
+                        <canvas id="previewCanvas" class="w-full h-auto rounded-xl shadow-2xl bg-black"></canvas>
+                        <div id="loadingOverlay" class="absolute inset-0 bg-black/80 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center hidden">
+                            <div class="w-8 h-8 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mb-3"></div>
+                            <p class="text-sm font-mono text-yellow-300" id="loadingText">Processing photo...</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        let currentFormat = 'B';
+        let uploadedImg = null;
+
+        function showSection(section) {
+            const secHero = document.getElementById('sectionHero');
+            const secGen = document.getElementById('sectionGenerator');
+
+            secHero.classList.add('hidden');
+            secGen.classList.add('hidden');
+
+            if (section === 'generator') {
+                secGen.classList.remove('hidden');
+                drawCanvas();
+            } else {
+                secHero.classList.remove('hidden');
+            }
+        }
+
+        const placeholderImg = new Image();
+        placeholderImg.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600"><rect width="600" height="600" fill="%2318181b"/><circle cx="300" cy="240" r="110" fill="%233f3f46"/><path d="M 120 520 C 120 380, 480 380, 480 520 Z" fill="%233f3f46"/></svg>';
+        placeholderImg.onload = () => drawCanvas();
+
+        function switchFormat(format) {
+            currentFormat = format;
+            const tabA = document.getElementById('tabFormatA');
+            const tabB = document.getElementById('tabFormatB');
+            const fieldsB = document.getElementById('fieldsFormatB');
+
+            if (format === 'A') {
+                tabA.className = "px-5 py-2.5 rounded-lg text-sm font-extrabold transition-all duration-200 bg-yellow-400 text-black shadow-lg shadow-yellow-400/20";
+                tabB.className = "px-5 py-2.5 rounded-lg text-sm font-extrabold transition-all duration-200 text-emerald-200 hover:text-white";
+                fieldsB.classList.add('hidden');
+            } else {
+                tabB.className = "px-5 py-2.5 rounded-lg text-sm font-extrabold transition-all duration-200 bg-yellow-400 text-black shadow-lg shadow-yellow-400/20";
+                tabA.className = "px-5 py-2.5 rounded-lg text-sm font-extrabold transition-all duration-200 text-emerald-200 hover:text-white";
+                fieldsB.classList.remove('hidden');
+            }
+            drawCanvas();
+        }
+
+        async function handleImageSelect(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            showLoading(true, "Processing file...");
+
+            try {
+                let fileToLoad = file;
+                if (file.name.toLowerCase().endsWith('.heic') || file.type === 'image/heic') {
+                    showLoading(true, "Converting HEIC photo...");
+                    const convertedBlob = await heic2any({ blob: file, toType: 'image/jpeg', quality: 0.9 });
+                    fileToLoad = Array.isArray(convertedBlob) ? convertedBlob[0] : convertedBlob;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        uploadedImg = img;
+                        document.getElementById('uploadLabel').innerText = file.name;
+                        document.getElementById('zoomSlider').value = 1;
+                        document.getElementById('panXSlider').value = 0;
+                        document.getElementById('panYSlider').value = 0;
+                        showLoading(false);
+                        drawCanvas();
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(fileToLoad);
+            } catch (err) {
+                console.error(err);
+                alert("Error loading image. Please upload a standard JPG or PNG.");
+                showLoading(false);
+            }
+        }
+
+        function showLoading(show, text = "") {
+            const el = document.getElementById('loadingOverlay');
+            if (show) {
+                document.getElementById('loadingText').innerText = text;
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        function drawCanvas() {
+            const canvas = document.getElementById('previewCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            const zoom = parseFloat(document.getElementById('zoomSlider').value);
+            const panX = parseFloat(document.getElementById('panXSlider').value);
+            const panY = parseFloat(document.getElementById('panYSlider').value);
+            const imgToDraw = uploadedImg || placeholderImg;
+
+            if (currentFormat === 'B') {
+                // High-resolution Badge Pass (1000x1650)
+                canvas.width = 1000;
+                canvas.height = 1650;
+
+                // 1. Outer Background
+                ctx.fillStyle = '#053821';
+                ctx.fillRect(0, 0, 1000, 1650);
+
+                // Brand Star Bursts
+                drawStar(ctx, 940, 1320, 4, 75, 28, '#ffe600');
+                drawStar(ctx, 50, 260, 4, 45, 18, '#ffe600');
+                drawStar(ctx, 950, 680, 4, 38, 14, '#ff007f');
+
+                // 2. Black Badge Card Body
+                const cardX = 60, cardY = 100, cardW = 880, cardH = 1470, cardR = 60;
+                
+                ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
+                ctx.shadowBlur = 50;
+                ctx.shadowOffsetY = 25;
+
+                ctx.fillStyle = '#090d0a';
+                ctx.beginPath();
+                ctx.roundRect(cardX, cardY, cardW, cardH, cardR);
+                ctx.fill();
+
+                ctx.strokeStyle = 'rgba(250, 204, 21, 0.3)';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+
+                ctx.shadowColor = 'transparent';
+
+                // 3. Lanyard Slot
+                const slotW = 160, slotH = 45, slotX = 500 - slotW/2, slotY = 145;
+                ctx.fillStyle = '#1c2620';
+                ctx.beginPath();
+                ctx.roundRect(slotX, slotY, slotW, slotH, 22);
+                ctx.fill();
+
+                ctx.strokeStyle = '#d1d5db';
+                ctx.lineWidth = 14;
+                ctx.beginPath();
+                ctx.arc(500, 105, 40, 0.2 * Math.PI, 0.8 * Math.PI, true);
+                ctx.stroke();
+
+                // 4. HACKER HOUSE HEADER
+                ctx.fillStyle = '#ffe600';
+                ctx.font = '900 44px "Playfair Display", serif';
+                ctx.textAlign = 'left';
+                ctx.fillText('HACKER HOUSE', 140, 260);
+
+                // Overlay Devanagari Pink Stamp "गोवा"
+                ctx.fillStyle = '#ff007f';
+                ctx.beginPath();
+                ctx.roundRect(700, 220, 160, 52, 14);
+                ctx.fill();
+                ctx.fillStyle = '#ffffff';
+                ctx.font = '800 24px "Plus Jakarta Sans", sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('गोवा', 780, 256);
+
+                // Event Location & Dates Tagline
+                ctx.fillStyle = '#84cc16';
+                ctx.font = '800 18px "JetBrains Mono", monospace';
+                ctx.textAlign = 'left';
+                ctx.fillText('GOA, INDIA  •  28 - 31 OCT 2026', 140, 302);
+
+                ctx.fillStyle = '#ff007f';
+                ctx.font = '800 15px "JetBrains Mono", monospace';
+                ctx.textAlign = 'right';
+                ctx.fillText('2:47 PM STUDIO', 860, 302);
+
+                // Decorative Divider Line
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(140, 325);
+                ctx.lineTo(860, 325);
+                ctx.stroke();
+
+                // 5. Photo Box
+                const photoX = 140, photoY = 355, photoW = 720, photoH = 680, photoRadius = 40;
+                ctx.fillStyle = '#18181b';
+                ctx.beginPath();
+                ctx.roundRect(photoX, photoY, photoW, photoH, photoRadius);
+                ctx.fill();
+
+                ctx.save();
+                ctx.beginPath();
+                ctx.roundRect(photoX, photoY, photoW, photoH, photoRadius);
+                ctx.clip();
+                drawScaledImage(ctx, imgToDraw, photoX, photoY, photoW, photoH, zoom, panX, panY);
+                ctx.restore();
+
+                // 6. Bounties Sign
+                const arrowY = 1060, arrowH = 75;
+                ctx.fillStyle = '#ff007f';
+                ctx.strokeStyle = '#000000';
+                ctx.lineWidth = 4;
+
+                ctx.beginPath();
+                ctx.moveTo(140, arrowY);
+                ctx.lineTo(790, arrowY);
+                ctx.lineTo(860, arrowY + arrowH / 2);
+                ctx.lineTo(790, arrowY + arrowH);
+                ctx.lineTo(140, arrowY + arrowH);
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.fillStyle = '#ffe600';
+                ctx.font = '900 48px "Playfair Display", serif';
+                ctx.textAlign = 'left';
+                ctx.fillText('$50K+', 180, arrowY + 54);
+
+                ctx.font = '800 20px "JetBrains Mono", monospace';
+                ctx.fillText('BOUNTIES', 335, arrowY + 36);
+                ctx.fillText('2026', 335, arrowY + 60);
+
+                // 7. Builder Name & Role
+                const nameText = document.getElementById('inputName').value || 'Vansh Bishnoi';
+                const roleText = document.getElementById('inputRole').value || 'Solidity / DeFi Architect';
+
+                ctx.font = '800 50px "Plus Jakarta Sans", sans-serif';
+                const calculatedNameWidth = ctx.measureText(nameText).width;
+
+                ctx.fillStyle = '#84cc16';
+                ctx.fillRect(140, 1200, Math.min(calculatedNameWidth + 20, 720), 8);
+
+                ctx.fillStyle = '#ffffff';
+                ctx.textAlign = 'left';
+                ctx.fillText(nameText, 140, 1202);
+
+                ctx.fillStyle = '#a1a1aa';
+                ctx.font = '600 26px "Plus Jakarta Sans", sans-serif';
+                ctx.fillText(roleText, 140, 1248);
+
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(140, 1285);
+                ctx.lineTo(860, 1285);
+                ctx.stroke();
+
+                // 8. Slogan
+                ctx.fillStyle = '#ffe600';
+                ctx.font = '800 21px "JetBrains Mono", monospace';
+                ctx.textAlign = 'center';
+                ctx.fillText('🌴 CODE BY THE BEACH • SHIP BY THE SUNSET 🌊', 500, 1335);
+
+            } else {
+                canvas.width = 1000;
+                canvas.height = 1000;
+
+                ctx.fillStyle = '#053821';
+                ctx.fillRect(0, 0, 1000, 1000);
+
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(500, 500, 420, 0, Math.PI * 2);
+                ctx.clip();
+                drawScaledImage(ctx, imgToDraw, 80, 80, 840, 840, zoom, panX, panY);
+                ctx.restore();
+
+                ctx.lineWidth = 26;
+                ctx.strokeStyle = '#ffe600';
+                ctx.beginPath();
+                ctx.arc(500, 500, 420, 0, Math.PI * 2);
+                ctx.stroke();
+
+                ctx.fillStyle = '#ff007f';
+                ctx.beginPath();
+                ctx.roundRect(300, 60, 400, 50, 25);
+                ctx.fill();
+                ctx.fillStyle = '#ffffff';
+                ctx.font = '800 20px "JetBrains Mono", monospace';
+                ctx.textAlign = 'center';
+                ctx.fillText('GOA, INDIA • 28 - 31 OCT 2026', 500, 92);
+
+                ctx.fillStyle = '#000000';
+                ctx.beginPath();
+                ctx.roundRect(220, 860, 560, 80, 40);
+                ctx.fill();
+                ctx.lineWidth = 4;
+                ctx.strokeStyle = '#ff007f';
+                ctx.stroke();
+
+                ctx.fillStyle = '#ffe600';
+                ctx.font = '900 28px "Playfair Display", serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('HACKER HOUSE GOA', 500, 910);
+            }
+        }
+
+        function drawScaledImage(ctx, img, x, y, w, h, zoom, panX, panY) {
+            const imgRatio = img.width / img.height;
+            const targetRatio = w / h;
+            let renderW, renderH;
+
+            if (imgRatio > targetRatio) {
+                renderH = h * zoom;
+                renderW = (h * imgRatio) * zoom;
+            } else {
+                renderW = w * zoom;
+                renderH = (w / imgRatio) * zoom;
+            }
+
+            const offsetX = x + (w - renderW) / 2 + panX;
+            const offsetY = y + (h - renderH) / 2 + panY;
+
+            ctx.drawImage(img, offsetX, offsetY, renderW, renderH);
+        }
+
+        function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius, color) {
+            let rot = Math.PI / 2 * 3;
+            let x = cx;
+            let y = cy;
+            let step = Math.PI / spikes;
+
+            ctx.beginPath();
+            ctx.moveTo(cx, cy - outerRadius);
+            for (let i = 0; i < spikes; i++) {
+                x = cx + Math.cos(rot) * outerRadius;
+                y = cy + Math.sin(rot) * outerRadius;
+                ctx.lineTo(x, y);
+                rot += step;
+
+                x = cx + Math.cos(rot) * innerRadius;
+                y = cy + Math.sin(rot) * innerRadius;
+                ctx.lineTo(x, y);
+                rot += step;
+            }
+            ctx.lineTo(cx, cy - outerRadius);
+            ctx.closePath();
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+
+        function downloadImage() {
+            const canvas = document.getElementById('previewCanvas');
+            const link = document.createElement('a');
+            link.download = currentFormat === 'B' ? 'HH_Goa_2026_BuilderPass.png' : 'HH_Goa_2026_PFP.png';
+            link.href = canvas.toDataURL('image/png', 1.0);
+            link.click();
+        }
+
+        function shareToX() {
+            const text = encodeURIComponent("Check out my official builder pass for Hacker House Goa 2026! #FrameInGoa");
+            window.open(`https://x.com/intent/post?text=${text}`, '_blank');
+        }
+
+        const dropZone = document.getElementById('dropZone');
+        if (dropZone) {
+            dropZone.addEventListener('click', () => document.getElementById('imageInput').click());
+            dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('border-yellow-400'); });
+            dropZone.addEventListener('dragleave', () => dropZone.classList.remove('border-yellow-400'));
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('border-yellow-400');
+                if (e.dataTransfer.files.length) {
+                    document.getElementById('imageInput').files = e.dataTransfer.files;
+                    handleImageSelect({ target: { files: e.dataTransfer.files } });
+                }
+            });
+        }
+
+        document.fonts.ready.then(() => {
+            drawCanvas();
+        });
+    </script>
+</body>
+</html>
